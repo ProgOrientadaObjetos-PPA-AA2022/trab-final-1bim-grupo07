@@ -9,44 +9,24 @@ import paquete05.Constructora;
 public class Departamento {
     
     private Propietario dueno;
-    private double precioMetroCua;
-    private double metrosCuadrados; 
-    private double mensualidad;
-    private double costFinal; 
     private Barrio barrio;
     private Ciudad ciudad; 
     private String nomEdificio; 
     private String UBdepartamento;  
     private Constructora contrustora; 
 
-    public Departamento(Propietario dueno, double precioMetroCua, int numCuadras, 
-            double mensualidad, double costFinal, Barrio barrio, Ciudad cuidad, 
-            String nomEdificio, String UBdepartamento, Constructora contrustora) {
+    public Departamento(Propietario dueno, Barrio barrio,Ciudad cuidad,Constructora contrustora) {
         this.dueno = dueno;
-        this.precioMetroCua = precioMetroCua;
-        this.metrosCuadrados = numCuadras;
-        this.mensualidad = mensualidad;
-        this.costFinal = costFinal;
         this.barrio = barrio;
         this.ciudad = cuidad;
+        this.contrustora = contrustora;
+    }
+    public Departamento(String nomEdificio, String UBdepartamento) {
         this.nomEdificio = nomEdificio;
         this.UBdepartamento = UBdepartamento;
-        this.contrustora = contrustora;
     }
     public void establecerDueno (Propietario f){
         dueno = f;
-    }
-    public void establecerPrecioMetroCua (double f){
-          precioMetroCua = f;
-    }
-    public void establecerNumCuadras (double f){
-          metrosCuadrados = f;
-    }
-    public void establecerMensualidad (double f){
-        mensualidad = f;
-    }
-    public void establecerCostoFinal (){
-        costFinal = precioMetroCua * metrosCuadrados + mensualidad;
     }
     public void establecerBarrio (Barrio f){
         barrio = f; 
@@ -66,18 +46,6 @@ public class Departamento {
     public Propietario obtenerDueno (){
         return dueno;
     }
-    public double obetnerPrecioMetroCua(){
-        return precioMetroCua;
-    }
-    public double obtenerMetrozCuadrados(){
-        return metrosCuadrados;
-    }
-    public double obtenerMensualidad(){
-        return mensualidad;
-    } 
-    public double obtenerCostoFinal() {
-        return costFinal; 
-    }
     public Barrio obtenerBarrio() {
         return barrio;
     }
@@ -92,5 +60,20 @@ public class Departamento {
     }
     public Constructora obtenerConstructora() {
         return contrustora;
+    }
+    @Override
+    public String toString(){ 
+        
+        String cadena = String.format ("DEPARTAMENTO \n"); 
+               cadena = String.format ("%s Nombre: %s\n Apellido %s\n"
+                       + "Cedula: %s\n Barrio: %s\n Referencia "
+                       + "del barrio: %s\n Cuidad: %s\n Provincia: %s\n Nombre "
+                       + "de la contrustora: %s\n ID de la contrustora: %s\n", cadena, 
+                       obtenerDueno().obtenerNomrbe(), obtenerDueno().obtenerApellido(), 
+                       obtenerDueno().obtenerIdentificacion(), obtenerBarrio().obtenerNombreBarrio(),
+                       obtenerBarrio().obtenerRefernecia(),obtenerCuidad().obtenerNombreCiudad(),
+                       obtenerCuidad().obtenerNombreProvincia(),obtenerConstructora().obtenerNombreConstructora(),
+                       obtenerConstructora().obtenerIDContructora());
+        return cadena;
     }
 }

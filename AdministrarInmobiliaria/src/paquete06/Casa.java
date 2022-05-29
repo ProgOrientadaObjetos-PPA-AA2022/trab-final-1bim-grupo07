@@ -9,38 +9,20 @@ import paquete05.Constructora;
 public class Casa {
     
     private Propietario dueno;
-    private double precioMetroCua;
-    private double metrosCuadrados; 
-    private double costFinal; 
     private Barrio barrio;
-    private Ciudad ciudad; 
-    private int numCuartos; 
+    private Ciudad ciudad;  
     private Constructora contrustora; 
+   
 
-    public Casa(Propietario dueno, double precioMetroCua, int numCuadras, double 
-            costFinal, Barrio barrio, Ciudad cuidad, int numCuartos, 
-            Constructora contrustora) {
+    public Casa(Propietario dueno,Barrio barrio, Ciudad cuidad,Constructora contrustora) {
         this.dueno = dueno;
-        this.precioMetroCua = precioMetroCua;
-        this.metrosCuadrados = numCuadras;
-        this.costFinal = costFinal;
         this.barrio = barrio;
         this.ciudad = cuidad;
-        this.numCuartos = numCuartos;
         this.contrustora = contrustora;
     }
     
     public void establecerDueno (Propietario f){
         dueno = f;
-    }
-    public void establecerPrecioMetroCua (double f){
-          precioMetroCua = f;
-    }
-    public void establecerNumCuadras (double f){
-          metrosCuadrados = f;
-    }
-    public void establecerCostoFinal (){
-        costFinal = precioMetroCua * metrosCuadrados;
     }
     public void establecerBarrio (Barrio f){
         barrio = f; 
@@ -48,23 +30,11 @@ public class Casa {
     public void establecerCuidad (Ciudad g){
         ciudad = g;
     }
-    public void establecerNumeroCuartos (int r){
-        numCuartos = r;
-    }
     public void establecerConstructora (Constructora r){
         contrustora = r ;
     }
     public Propietario obtenerDueno (){
         return dueno;
-    }
-    public double obetnerPrecioMetroCua(){
-        return precioMetroCua;
-    }
-    public double obtenerMetrozCuadrados(){
-        return metrosCuadrados;
-    }
-    public double obtenerCostoFinal() {
-        return costFinal; 
     }
     public Barrio obtenerBarrio() {
         return barrio;
@@ -72,10 +42,23 @@ public class Casa {
     public Ciudad obtenerCuidad() {
         return ciudad;  
     }
-    public int obtenerNumeroCuartos (){
-        return numCuartos;
-    }
     public Constructora obtenerConstructora() {
         return contrustora;
+    }
+    
+    @Override
+    public String toString(){ 
+        
+        String cadena = String.format ("CASA! \n"); 
+               cadena = String.format ("%s Nombre del propietario: %s\n Apellido"
+                + " del propietario: %s\n Cedula: %s\n Barrio: %s\n Referencia "
+                       + "del barrio: %s\n Cuidad: %s\n Provincia: %s\n Nombre "
+                       + "de la contrustora: %s\n ID de la contrustora: %s\n",cadena,
+                       obtenerDueno().obtenerNomrbe(), obtenerDueno().obtenerApellido(), 
+                       obtenerDueno().obtenerIdentificacion(), obtenerBarrio().obtenerNombreBarrio(),
+                       obtenerBarrio().obtenerRefernecia(),obtenerCuidad().obtenerNombreCiudad(),
+                       obtenerCuidad().obtenerNombreProvincia(),obtenerConstructora().obtenerNombreConstructora(),
+                       obtenerConstructora().obtenerIDContructora());
+        return cadena;
     }
 }
