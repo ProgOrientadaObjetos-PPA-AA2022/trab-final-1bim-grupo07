@@ -33,13 +33,12 @@ public class Ejecutor {
                 
                 
                 break;
-        case 2: System.out.print ("DEja de ser bobo");
+        case 2: 
         
         
         
                 break;
-        case 3: System.out.print("Me estoy cagando y no de risa \n");
-                System.out.print("Deja de ser estupido te dije solo 1 y 2 y pones vrg si ves como eres");
+        case 3: 
                 
                 
                 
