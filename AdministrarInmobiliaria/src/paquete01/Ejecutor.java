@@ -8,6 +8,7 @@ import paquete04.Ciudad;
 import paquete05.Constructora;
 import paquete06.Casa;
 import paquete06.Departamento;
+//Importamos todo lo que vamos a usar en el ejecutor
         
 public class Ejecutor {
     public static void main(String[] args) {
@@ -22,11 +23,15 @@ public class Ejecutor {
         Constructora constructora;
         double precioMetro, metrosCua, aliCuota;
         int op, numeroCuartos; 
+        //Declaramos las variables que vamos a ocupar en el metodo main 
         
         do {
-            op = menu();
-            switch(op){
-                case 1:
+            op = eso();
+            switch(op){ //Creamos un switch para que el usuario puda elegir 
+                        //dentro del menu de eleciones
+                
+                case 1: //En el caso hacemos que ingrese el precio de metro 
+                        //cuadrado y demas
                     propietario = buscarpropietario();
                     barrio = buscarBarrio();
                     ciudad = buscarCiudad();
@@ -35,7 +40,7 @@ public class Ejecutor {
                     precioMetro = sc.nextDouble();
                     System.out.print("Metros cuadrados: \n");
                     metrosCua = sc.nextDouble();
-                    System.out.print("Ingrese el numero de cuartos: ");
+                    System.out.print("Ingrese el numero de cuartos: \n");
                     numeroCuartos = sc.nextInt();
                     casa = new Casa(precioMetro, metrosCua, numeroCuartos, propietario
                         ,barrio, ciudad, constructora);
@@ -45,7 +50,9 @@ public class Ejecutor {
                     archivo.establecerRegistroCasa(casa);
                     archivo.establecerSalidaCasa();
                     break;
-                case 2:
+                    
+                case 2: //En el caso dos los datos del metros cuadra y demas pero adicional 
+                        //pedimos la aliCuota y datos del edicio para llenar el departemento
                     propietario = buscarpropietario();
                     barrio = buscarBarrio();
                     ciudad = buscarCiudad();
@@ -69,7 +76,8 @@ public class Ejecutor {
                     archivo2.establecerRegistroDepartamento(departamento);
                     archivo2.establecerSalidaDepartamento();
                     break;
-                case 3: 
+                    
+                case 3: //En le caso tres pidimos los datos del propietario
                     System.out.print("Ingrese el nombre del propiertario: \n");
                     String nombrePropietario = sc.nextLine();
                     System.out.print("Ingres el apellido del propietario: \n");
@@ -84,7 +92,8 @@ public class Ejecutor {
                     archivo3.establecerRegistroPropietario(propietario);
                     archivo3.establecerSalidaPropietario();
                     break;
-                case 4:
+                    
+                case 4: //En le caso cuatro pidimos los datos del barrio
                     System.out.print("Nombre del barrio: \n");
                     String nomBarrio = sc.nextLine();
                     System.out.print("Referencia barrio: \n");
@@ -96,7 +105,8 @@ public class Ejecutor {
                     archivo4.establecerRegistroBarrio(barrio);
                     archivo4.establecerSalidaBarrio();
                     break;
-                case 5:
+                    
+                case 5: //En le caso cinco pidimos los datos del ciudad
                     System.out.print("Ciudad: \n");
                     String nomCiudad = sc.nextLine();
                     System.out.print("Provincia: \n");
@@ -107,7 +117,8 @@ public class Ejecutor {
                     archivo5.establecerRegistroCiudad(ciudad);
                     archivo5.establecerSalidaCiudad();
                     break;
-                case 6:
+                    
+                case 6: //En le caso seis pidimos los datos del constructora
                     System.out.print("Nombre Constuctora: \n");
                     String nomConstructora = sc.nextLine();
                     System.out.print("ID Constructora: \n");
@@ -130,7 +141,8 @@ public class Ejecutor {
         while(op != 0);
     }
     
-    public static int menu(){
+    public static int eso(){ //Del sup proceso retorna el valor para que el switch
+                             // sepa donde llevarnos 
         Scanner sc = new Scanner(System.in);
         int op;
         System.out.print("Ingresar nueva casa: (1)\n");
@@ -145,7 +157,8 @@ public class Ejecutor {
         return op;
     }
     
-    public static int menu2(){
+    public static int menu2(){ //Del sub proceso menu2 retorna el dato para saber 
+                               // que listar
         Scanner sc = new Scanner(System.in);
         int op;
         System.out.print("Listar casas: (1)\n");
@@ -161,8 +174,8 @@ public class Ejecutor {
     public static Propietario buscarpropietario(){
         Scanner sc =  new Scanner(System.in);
         String identificacion; 
-        String nombres;
-        String apellido;
+        String nombres;       //En este sub proceso el programa busca en base a  
+        String apellido;      //lo ingresado por el usuario
         String nombreArchivo = "datos/propietario.txt";
         System.out.println("Ingrese identificacion del propietario: ");
         identificacion = sc.nextLine();
@@ -280,7 +293,7 @@ public class Ejecutor {
         }
     }
     public static void mostarListas(int ops2){
-        switch (ops2){
+        switch (ops2){     //Este sub proceso ensena las listas que el ususario ingrese
             case 1: 
                 LecturaArchivosSecuencial lectura = new LecturaArchivosSecuencial("datos/casa.txt");
                 lectura.establerListaCasas();
