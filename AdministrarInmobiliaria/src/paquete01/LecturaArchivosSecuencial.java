@@ -52,7 +52,7 @@ public class LecturaArchivosSecuencial {
                 try {
                     Casa registro = (Casa) entrada.readObject();
                     casas.add(registro);
-                }catch(EOFException endoffFileException){
+                }catch(EOFException endofFileException){
                     return;
                 }catch (IOException ex){
                     System.err.print("Error al leer el archivo "+ex);
@@ -60,6 +60,7 @@ public class LecturaArchivosSecuencial {
                     System.err.print("No se pudo creer el obejto "+ex);
                 }catch(Exception ex){
                     
+                    break;
                 }
             }
         }
@@ -72,7 +73,7 @@ public class LecturaArchivosSecuencial {
                 try {
                     Departamento registro = (Departamento) entrada.readObject();
                     departamento.add(registro);
-                }catch(EOFException endoffFileException){
+                }catch(EOFException endOfFileException){
                     return;
                 }catch (IOException ex){
                     System.err.print("Error al leer el archivo "+ex);
@@ -80,6 +81,7 @@ public class LecturaArchivosSecuencial {
                     System.err.print("No se pudo creer el obejto "+ex);
                 }catch(Exception ex){
                     
+                    break;
                 }
             }
         }
@@ -100,6 +102,7 @@ public class LecturaArchivosSecuencial {
                     System.err.print("No se pudo creer el obejto "+ex);
                 }catch(Exception ex){
                     
+                    break;
                 }
             }
         }
@@ -119,7 +122,8 @@ public class LecturaArchivosSecuencial {
                 }catch (ClassNotFoundException ex){
                     System.err.print("No se pudo creer el obejto "+ex);
                 }catch(Exception ex){
-                    
+                 
+                    break;
                 }
             }
         }
@@ -140,6 +144,7 @@ public class LecturaArchivosSecuencial {
                     System.err.print("No se pudo creer el obejto "+ex);
                 }catch(Exception ex){
                     
+                    break;
                 }
             }
         }
@@ -160,6 +165,7 @@ public class LecturaArchivosSecuencial {
                     System.err.print("No se pudo creer el obejto "+ex);
                 }catch(Exception ex){
                     
+                    break;
                 }
             }
         }
@@ -190,7 +196,6 @@ public class LecturaArchivosSecuencial {
             if (entrada != null){
                 entrada.close();
             }
-            System.exit(0);
         }catch (IOException ioException){
             System.err.println("Error al cerrar el archivo");
             System.exit(1);
@@ -271,7 +276,7 @@ public class LecturaArchivosSecuencial {
             while (true){
                 try{
                     Constructora registro = (Constructora) entrada.readObject();
-                    if (registro.obtenerNombreConstructora().equals(identificador)){
+                    if (registro.obtenerIDContructora().equals(identificador)){
                         constructoraBuscado = registro;
                         break;
                     }
@@ -358,7 +363,7 @@ public class LecturaArchivosSecuencial {
         return cadena;
     }
     public String imprimirCiudad(){
-        String cadena = "Cuidad \n";
+        String cadena = "Ciudad \n";
         for(int i=0;i< ciudad.size();i++){
             cadena = String.format("%s Nombre de la cuidad: $s\n Prvincia: %s\n", cadena, 
                     ciudad.get(i).obtenerNombreCiudad(),ciudad.get(i).obtenerNombreProvincia());

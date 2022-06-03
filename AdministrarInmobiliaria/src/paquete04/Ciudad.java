@@ -25,4 +25,10 @@ public class Ciudad implements Serializable{
     public String obtenerNombreProvincia(){
         return nombreProvincia;
     }
+    @Override
+    public String toString(){
+        String cadena = String.format("Ciudad: %s Provincia: %s", nombreCuidad,
+                nombreProvincia);
+        return cadena;
+    }
 }

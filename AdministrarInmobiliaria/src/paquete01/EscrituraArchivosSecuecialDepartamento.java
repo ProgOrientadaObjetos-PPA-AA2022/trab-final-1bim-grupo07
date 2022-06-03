@@ -14,8 +14,8 @@ public class EscrituraArchivosSecuecialDepartamento {
     private Departamento registroDepartamento;
     private ArrayList<Departamento> listDepartamento;
 
-    public EscrituraArchivosSecuecialDepartamento(String nombreArchivo){
-        nombreArchivo = nombreArchivo;
+    public EscrituraArchivosSecuecialDepartamento(String nombreArchivos){
+        nombreArchivo = nombreArchivos;
         establecerListaDepartamento();
         try{
             salida = new ObjectOutputStream (new FileOutputStream(nombreArchivo));

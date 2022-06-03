@@ -37,8 +37,8 @@ public class Ejecutor {
                     metrosCua = sc.nextDouble();
                     System.out.print("Ingrese el numero de cuartos: ");
                     numeroCuartos = sc.nextInt();
-                    casa = new Casa(precioMetro, metrosCua, numeroCuartos, buscarpropietario()
-                        ,buscarBarrio(), buscarCiudad(), buscarConstructora());
+                    casa = new Casa(precioMetro, metrosCua, numeroCuartos, propietario
+                        ,barrio, ciudad, constructora);
                     casa.establecerCostoFinal();
                     EscrituraArchivosSecuecialCasa archivo = new 
                         EscrituraArchivosSecuecialCasa("datos/casa.txt");
@@ -62,7 +62,8 @@ public class Ejecutor {
                     System.out.print("Ubicacion de departamento dentro del edificio: \n");
                     UBdificio = sc.nextLine();
                     departamento = new Departamento(propietario,precioMetro,
-                        metrosCua,aliCuota,barrio,ciudad, nomrbeEdificio, UBdificio, constructora);
+                        metrosCua,aliCuota,barrio,ciudad, nomrbeEdificio, UBdificio, 
+                        constructora);
                     EscrituraArchivosSecuecialDepartamento archivo2 = new 
                         EscrituraArchivosSecuecialDepartamento ("datos/departamento.txt");
                     archivo2.establecerRegistroDepartamento(departamento);
@@ -132,14 +133,14 @@ public class Ejecutor {
     public static int menu(){
         Scanner sc = new Scanner(System.in);
         int op;
-        System.out.print("Ingresar nueva casa: 1\n");
-        System.out.print("Ingresar nuevo departamento: 2\n");
-        System.out.print("Ingresar nuevo propietario: 3\n");
-        System.out.print("Ingresar nuevo barrio: 4\n");
-        System.out.print("Ingresar nueva ciudad: 5\n");
-        System.out.print("Ingresar nueva constructora: 6\n");
-        System.out.print("Ver lista: 7\n");
-        System.out.print("Salir del programa: 8\n");
+        System.out.print("Ingresar nueva casa: (1)\n");
+        System.out.print("Ingresar nuevo departamento: (2)\n");
+        System.out.print("Ingresar nuevo propietario: (3)\n");
+        System.out.print("Ingresar nuevo barrio: (4)\n");
+        System.out.print("Ingresar nueva ciudad: (5)\n");
+        System.out.print("Ingresar nueva constructora: (6)\n");
+        System.out.print("Ver lista: (7)\n");
+        System.out.print("Salir del programa: (8)\n");
         op = sc.nextInt();
         return op;
     }
@@ -147,13 +148,13 @@ public class Ejecutor {
     public static int menu2(){
         Scanner sc = new Scanner(System.in);
         int op;
-        System.out.print("Listar casas: 1\n");
-        System.out.print("Listar departamento: 2\n");
-        System.out.print("Listar propietario: 3\n");
-        System.out.print("Listar barrio: 4\n");
-        System.out.print("Listar ciudad: 5\n");
-        System.out.print("Listar construntora: 6\n");
-        System.out.print("Regresar al menu anterio: 7\n");
+        System.out.print("Listar casas: (1)\n");
+        System.out.print("Listar departamento: (2)\n");
+        System.out.print("Listar propietario: (3)\n");
+        System.out.print("Listar barrio: (4)\n");
+        System.out.print("Listar ciudad: (5)\n");
+        System.out.print("Listar construntora: (6)\n");
+        System.out.print("Regresar al menu anterio: (7)\n");
         op = sc.nextInt();
         return op;
     }
@@ -171,7 +172,7 @@ public class Ejecutor {
         lectura.establecerPropietarioBuscado();
         propietarioBuscar = lectura.obtenerPropietarioBuscado();
         if (propietarioBuscar != null){
-            System.out.printf("Propietario hallado: ", propietarioBuscar);
+            System.out.printf("Propietario hallado: %s", propietarioBuscar);
             return propietarioBuscar;
         }else {
             System.out.println("Propietario no hallado.");
@@ -203,7 +204,7 @@ public class Ejecutor {
         lectura.establecerBarrioBuscado();
         BarrioBuscar = lectura.obtenerBarrioBuscado();
         if (BarrioBuscar != null){
-            System.out.printf("Barrio hallado: ", BarrioBuscar);
+            System.out.printf("Barrio hallado: %s", BarrioBuscar);
             return BarrioBuscar;
         }else {
             System.out.println("Barrio no hallado.");
@@ -230,22 +231,22 @@ public class Ejecutor {
         Ciudad CuidadBuscar;
         LecturaArchivosSecuencial lectura = new LecturaArchivosSecuencial(nombreArchivo);
         lectura.establecerIdenticador(nombreCuidad);
-        lectura.establecerBarrioBuscado();
+        lectura.establecerCuidadBuscado();
         CuidadBuscar = lectura.obtenerCiudadBuscado();
         if (CuidadBuscar != null){
-            System.out.printf("Barrio hallado: ", CuidadBuscar);
+            System.out.printf("Barrio hallado: %s", CuidadBuscar);
             return CuidadBuscar;
         }else {
-            System.out.println("Cuidad no hallado.");
+            System.out.println("Ciudad no hallado.");
             System.out.println("Ingrese los datos de una nueva Ciuadad");
             System.out.println("Cuidad: ");
             nombreCuidad = sc.nextLine();
             System.out.println("Provincia: ");
             provincia = sc.nextLine();
             Ciudad cui = new Ciudad(nombreCuidad,provincia);
-            EscrituraArchivosSecuecialCuidad archivo2 = new EscrituraArchivosSecuecialCuidad(nombreArchivo);
-            archivo2.establecerRegistroCiudad(cui);
-            archivo2.establecerSalidaCiudad();
+            EscrituraArchivosSecuecialCuidad archivo3 = new EscrituraArchivosSecuecialCuidad(nombreArchivo);
+            archivo3.establecerRegistroCiudad(cui);
+            archivo3.establecerSalidaCiudad();
             return cui;        
         }
     }
@@ -254,27 +255,27 @@ public class Ejecutor {
         String Constructora;
         String idConstructora;
         String nombreArchivo = "datos/constructora.txt";
-        System.out.println("Ingrese nombre del barrio: ");
-        Constructora = sc.nextLine();
+        System.out.println("Ingrese id de la constructora: ");
+        idConstructora = sc.nextLine();
         Constructora ConstructoraBuscar;
         LecturaArchivosSecuencial lectura = new LecturaArchivosSecuencial(nombreArchivo);
-        lectura.establecerIdenticador(Constructora);
+        lectura.establecerIdenticador(idConstructora);
         lectura.establecerConstructoraBuscado();
         ConstructoraBuscar = lectura.obtenerConstructoraBuscado();
         if (ConstructoraBuscar != null){
-            System.out.printf("Barrio hallado: ", ConstructoraBuscar);
+            System.out.printf("Constructora hallada: %s", ConstructoraBuscar);
             return ConstructoraBuscar;
         }else {
             System.out.println("Cuidad no hallado.");
-            System.out.println("Ingrese los datos de una nueva Ciuadad");
-            System.out.println("Cuidad: ");
+            System.out.println("Ingrese los datos de una nueva Contructora");
+            System.out.println("Nombre contructora: ");
             Constructora = sc.nextLine();
-            System.out.println("Provincia: ");
+            System.out.println("Id contructora: ");
             idConstructora = sc.nextLine();
             Constructora cons = new Constructora(Constructora,idConstructora);
-            EscrituraArchivosSecuecialConstructora archivo2 = new EscrituraArchivosSecuecialConstructora(nombreArchivo);
-            archivo2.establecerRegistroConstructora(cons);
-            archivo2.establecerSalidaConstructora();
+            EscrituraArchivosSecuecialConstructora archivo4 = new EscrituraArchivosSecuecialConstructora(nombreArchivo);
+            archivo4.establecerRegistroConstructora(cons);
+            archivo4.establecerSalidaConstructora();
             return cons;        
         }
     }
@@ -319,4 +320,3 @@ public class Ejecutor {
         }
     }
 } 
-

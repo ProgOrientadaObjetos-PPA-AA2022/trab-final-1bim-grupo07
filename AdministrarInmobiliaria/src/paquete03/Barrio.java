@@ -25,4 +25,10 @@ public class Barrio implements Serializable{
     public String obtenerRefernecia(){
         return referencia;
     }
+    @Override
+    public String toString(){
+        String cadena = String.format("Nombre del Barrio: %s Referencia: %s", 
+                nombreBarrio,referencia);
+        return cadena;
+    }
 }

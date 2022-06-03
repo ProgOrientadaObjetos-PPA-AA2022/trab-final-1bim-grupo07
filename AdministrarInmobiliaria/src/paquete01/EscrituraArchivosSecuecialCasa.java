@@ -22,8 +22,8 @@ public class EscrituraArchivosSecuecialCasa {
     private Casa registroCasa;
     private ArrayList<Casa> listCasa;
     
-    public EscrituraArchivosSecuecialCasa(String nombreArchivo){
-        nombreArchivo = nombreArchivo;
+    public EscrituraArchivosSecuecialCasa(String nombreArchivos){
+        nombreArchivo = nombreArchivos;
         establecerListaCasa();
         try{
             salida = new ObjectOutputStream (new FileOutputStream(nombreArchivo));

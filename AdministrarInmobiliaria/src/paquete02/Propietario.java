@@ -32,5 +32,11 @@ public class Propietario implements Serializable{
     }
     public String obtenerIdentificacion(){
         return identificacion;
-    }    
+    } 
+    @Override
+    public String toString(){
+        String cadena = String.format("Nombre: %s Apeliido: %s Identificacion: %s\n",
+                nombre, apellido, identificacion);
+        return cadena; 
+    }
 }

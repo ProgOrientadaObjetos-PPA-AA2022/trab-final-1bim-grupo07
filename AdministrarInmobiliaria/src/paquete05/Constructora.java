@@ -25,4 +25,10 @@ public class Constructora implements Serializable{
     public String obtenerIDContructora(){
         return IDempresa;
     }
+    @Override
+    public String toString(){
+        String cadena = String.format("Nombre Constructora: %s ID de la "
+                + "Constructora: %s", nomContructora, IDempresa);
+        return cadena;
+    }
 }

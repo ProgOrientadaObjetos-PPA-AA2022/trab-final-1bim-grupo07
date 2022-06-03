@@ -13,10 +13,10 @@ public class EscrituraArchivosSecuecialPropietario {
     private String nombreArchivo;
     private ObjectOutputStream salida;
     private Propietario registroPropietario;
-    private ArrayList<Propietario> listBarrio;
+    private ArrayList<Propietario> listPropietario;
 
-    public EscrituraArchivosSecuecialPropietario(String nombreArchivo){
-        nombreArchivo = nombreArchivo;
+    public EscrituraArchivosSecuecialPropietario(String nombreArchivos){
+        nombreArchivo = nombreArchivos;
         establecerListaPropietario();
         try{
             salida = new ObjectOutputStream (new FileOutputStream(nombreArchivo));
@@ -47,13 +47,13 @@ public class EscrituraArchivosSecuecialPropietario {
         LecturaArchivosSecuencial l = new LecturaArchivosSecuencial
         (obtenerNombreArchivo());
         l.establecerListaPropietario();
-        listBarrio = l.obtenerListaPropietario();
+        listPropietario = l.obtenerListaPropietario();
     }
     public String obtenerNombreArchivo(){
         return nombreArchivo;
     }
     public ArrayList<Propietario> obtenerListaPropietario(){
-        return listBarrio; 
+        return listPropietario; 
     }
     public ObjectOutputStream obtenerSalidaPropietario(){
         return salida;

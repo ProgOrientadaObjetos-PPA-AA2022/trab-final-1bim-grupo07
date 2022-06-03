@@ -14,8 +14,8 @@ public class EscrituraArchivosSecuecialBarrio {
     private Barrio registroBarrio;
     private ArrayList<Barrio> listBarrio;
     
-    public EscrituraArchivosSecuecialBarrio(String nombreArchivo){
-        nombreArchivo = nombreArchivo;
+    public EscrituraArchivosSecuecialBarrio(String nombreArchivos){
+        nombreArchivo = nombreArchivos;
         establecerListaBarrio();
         try{
             salida = new ObjectOutputStream (new FileOutputStream(nombreArchivo));

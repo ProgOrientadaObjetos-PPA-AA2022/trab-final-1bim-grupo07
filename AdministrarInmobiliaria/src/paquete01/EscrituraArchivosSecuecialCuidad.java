@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import paquete04.Ciudad;
-import paquete06.Departamento;
 
 public class EscrituraArchivosSecuecialCuidad {
     
@@ -27,7 +26,7 @@ public class EscrituraArchivosSecuecialCuidad {
                 }
             }
         }catch(IOException ioException){
-            System.err.println("Erros la brir el archivo.");
+            System.err.println("Erros la abrir el archivo.");
         }
     }
     public void establecerNombreArchivo(String g){
@@ -46,6 +45,7 @@ public class EscrituraArchivosSecuecialCuidad {
     public void establecerListaCiudad(){
         LecturaArchivosSecuencial l = new LecturaArchivosSecuencial(obtenerNombreArchivo());
         l.establecerListaCiudad();
+        listaCiudades = l.obtenerListaCiudad();
     }
     public String obtenerNombreArchivo(){
         return nombreArchivo;

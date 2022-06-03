@@ -27,7 +27,7 @@ public class EscrituraArchivosSecuecialConstructora {
                 }
             }
         }catch(IOException ioException){
-            System.err.println("Erros la brir el archivo.");
+            System.err.println("Erros la abrir el archivo.");
         }
     }
     public void establecerNombreArchivo(String g){
@@ -46,6 +46,7 @@ public class EscrituraArchivosSecuecialConstructora {
     public void establecerListaConstructora(){
         LecturaArchivosSecuencial l = new LecturaArchivosSecuencial(obtenerNombreArchivo());
         l.establecerListaCiudad();
+        listaConstructora = l.obtenerListaConstructora();
     }
     public String obtenerNombreArchivo(){
         return nombreArchivo;
@@ -53,7 +54,7 @@ public class EscrituraArchivosSecuecialConstructora {
     public ArrayList<Constructora> obtenerListaConstructora(){
         return listaConstructora; 
     }
-    public ObjectOutputStream obtenerSalida(){
+    public ObjectOutputStream obtenerSalidaConstructora(){
         return salida; 
     }
     public void cerrarArchivo(){
